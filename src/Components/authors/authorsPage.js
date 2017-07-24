@@ -2,6 +2,7 @@
 
 var React = require('react');
 var AuthorsApi = require('../../api/authorApi');
+var AuthorsList = require('./authorsList');
 
 var Authors = React.createClass(
   {
@@ -17,29 +18,11 @@ var Authors = React.createClass(
 
       render: function()
       {
-          var createAuthorRow = function(author)
-          {
-              return (
-                  <tr key={author.id}>
-                    <td><a href="/#about">{author.id}</a></td>
-                    <td>TTTTT</td>
-                  </tr>
-              );
-          };
 
           return (
             <div>
                 <h1>Authors</h1>
-
-                <table className="table">
-                    <thead>
-                        <th>ID</th>
-                        <th>Name</th>
-                    </thead>
-                    <tbody>
-                        {this.state.authors.map(createAuthorRow)}
-                    </tbody>
-                </table>
+                <AuthorsList authors={this.state.authors}/>
             </div>);
       }
   }  

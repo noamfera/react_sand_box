@@ -34777,9 +34777,11 @@ var Authors = React.createClass(
          return {authors: []};
      },
 
-     componentWillMount: function()
+     componentDidMount: function()
      {
-         this.setState({authors: AuthorsApi.getAllAuthors()});
+         if(this.isMounted()){
+            this.setState({authors: AuthorsApi.getAllAuthors()});
+         }
      },
 
       render: function()

@@ -37881,8 +37881,8 @@ var About = React.createClass({displayName: "About",
 module.exports = About;
 
 },{"react":200}],204:[function(require,module,exports){
-"use strict";
 
+$ = jQuery = require('jquery');
 var React = require('react');
 var ReactHandler = require('react-router').ReactHandler;
 var Header =  require('./common/header');
@@ -37899,7 +37899,9 @@ var App = React.createClass({displayName: "App",
         }
 });
 
-},{"./common/header":207,"react":200,"react-router":30}],205:[function(require,module,exports){
+module.exports = App;
+
+},{"./common/header":207,"jquery":3,"react":200,"react-router":30}],205:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -38006,7 +38008,8 @@ var Home = React.createClass({displayName: "Home",
 module.exports = Home;
 
 },{"react":200}],209:[function(require,module,exports){
-$ = jQuery = require('jquery');
+"use strict";
+
 var React = require('react');
 var ReactHandler = require('react-router').ReactHandler;
 var Router = require('react-router');
@@ -38015,11 +38018,10 @@ var routes = require('./routes');
 Router.run(routes, function(Handler){
     React.render(React.createElement(Handler, null), document.getElementById("app"));
 });
-},{"./routes":210,"jquery":3,"react":200,"react-router":30}],210:[function(require,module,exports){
+},{"./routes":210,"react":200,"react-router":30}],210:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
-
 var Router = require('react-router');
 var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
@@ -38028,7 +38030,7 @@ var Redirect = Router.Redirect;
 
 
 var routes = (
-		React.createElement(Route, {name: "app", path: "/", handler: require('./components/app')}, 
+		React.createElement(Route, {name: "app", path: "/", handler: require('./components/app').App}, 
 			React.createElement(DefaultRoute, {handler: require('./components/homePage')}), 
 			React.createElement(Route, {name: "authors", handler: require('./components/authors/authorsPage')}), 
 			React.createElement(Route, {name: "about", handler: require('./components/about/aboutPage')})

@@ -1,4 +1,5 @@
-$ = jQuery = require('jquery');
+"use strict";
+
 var React = require('react');
 var ReactHandler = require('react-router').ReactHandler;
 var Router = require('react-router');
